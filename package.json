@@ -1,9 +1,9 @@
 {
   "name": "heating-frontend",
   "scripts": {
-    "dev": "solid-start dev",
-    "build": "solid-start build",
-    "start": "solid-start start"
+    "dev": "DEBUG=true SENTRY=false solid-start dev",
+    "build": "DEBUG=true SENTRY=false solid-start build && cat ./src/fake_document.ts ./dist/server.js > ./dist/temp && mv ./dist/temp ./dist/server.js",
+    "start": "DEBUG=true SENTRY=false solid-start start"
   },
   "type": "module",
   "devDependencies": {

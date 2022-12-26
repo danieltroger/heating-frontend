@@ -24,4 +24,5 @@ if (typeof window == "undefined") {
   globalThis.history ||= new history_class();
   globalThis.Node ||= class {};
   globalThis.navigator ||= class {};
+  globalThis.WebSocket ||= class extends EventTarget {};
 }

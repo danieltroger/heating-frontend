@@ -1,4 +1,6 @@
 body {
+  color: white;
+  background: black;
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -8,7 +10,9 @@ a {
 }
 
 main {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 1em;
   margin: 0 auto;
 }

@@ -37,6 +37,7 @@ export function get_config_signal() {
   return [
     read_config_signal,
     async (new_config: string) => {
+      write_config_signal(new_config); // So that diffing works once we receive the actual value from the server
       try {
         const parsed_config = JSON.parse(new_config);
         const [response] = (await socket?.ensure_sent({

@@ -23,10 +23,16 @@ export default function ConfigEditorComponent() {
         ref={button!}
         onClick={async () => {
           const success = await set_config(textarea.value);
-          button.animate([{ backgroundColor: success ? "green" : "red" }], {
-            // chrome bug: this doesn't work when no initial background is set via css
-            duration: 500,
-          });
+          button.animate(
+            [
+              { backgroundColor: success ? "green" : "red", offset: 0.2 },
+              { backgroundColor: success ? "green" : "red", offset: 0.8 },
+            ],
+            {
+              // chrome bug: this doesn't work when no initial background is set via css
+              duration: 2000,
+            }
+          );
         }}
       >
         Save

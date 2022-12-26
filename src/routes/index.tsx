@@ -1,7 +1,4 @@
 import { Title } from "solid-start";
-import ConfigEditor from "~/components/ConfigEditorComponent";
-import { DepictAPIWS } from "@depict-ai/utilishared";
-import { createSignal } from "solid-js";
 
 export default function Home() {
   return (

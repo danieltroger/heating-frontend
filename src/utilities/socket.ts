@@ -1,8 +1,9 @@
 import { DepictAPIWS } from "@depict-ai/utilishared";
+import { is_client } from "~/utilities/is_client";
 
 export let socket: DepictAPIWS | undefined;
 
-if (!socket && typeof window !== "undefined" && !(window as any).is_fake) {
+if (!socket && is_client) {
   try {
     socket = new DepictAPIWS("ws://localhost:9321");
     socket.addEventListener("message", (msg) => {

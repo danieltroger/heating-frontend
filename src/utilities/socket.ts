@@ -5,10 +5,7 @@ export let socket: DepictAPIWS | undefined;
 
 if (!socket && is_client) {
   try {
-    socket = new DepictAPIWS("ws://localhost:9321");
-    socket.addEventListener("message", (msg) => {
-      console.log("Got message", (msg as any).data);
-    });
+    socket = new DepictAPIWS("ws://192.168.1.100:9321");
   } catch (e) {
     console.log(e);
   }

@@ -9,6 +9,9 @@ export default function Home() {
         <li>
           <a href="/config-editor">Config editor</a>
         </li>
+        <li>
+          <a href="/temperatures">Temperatures</a>
+        </li>
       </ol>
     </main>
   );

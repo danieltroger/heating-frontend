@@ -5,7 +5,7 @@ export let socket: DepictAPIWS | undefined;
 
 if (!socket && is_client) {
   try {
-    socket = new DepictAPIWS("ws://192.168.1.100:9321");
+    socket = new DepictAPIWS("ws://192.168.178.202:9321");
   } catch (e) {
     console.log(e);
   }

@@ -28,6 +28,7 @@ export default function Root() {
             <A href="/">Front page</A>
             <A href="/config-editor">Config editor</A>
             <A href="/temperatures">Temperatures</A>
+            <A href="/gpio">GPIO</A>
             <Routes>
               <FileRoutes />
             </Routes>

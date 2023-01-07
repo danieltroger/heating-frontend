@@ -1,4 +1,4 @@
-import { Title } from "solid-start";
+import { A, Title } from "solid-start";
 
 export default function Home() {
   return (
@@ -7,10 +7,13 @@ export default function Home() {
       <h1>Heating controls</h1>
       <ol>
         <li>
-          <a href="/config-editor">Config editor</a>
+          <A href="/config-editor">Config editor</A>
         </li>
         <li>
-          <a href="/temperatures">Temperatures</a>
+          <A href="/temperatures">Temperatures</A>
+        </li>
+        <li>
+          <A href="/gpio">GPIO</A>
         </li>
       </ol>
     </main>

@@ -7,12 +7,14 @@
   },
   "type": "module",
   "devDependencies": {
+    "sass": "^1.57.1",
     "solid-start-node": "^0.2.0",
     "typescript": "^4.8.4",
-    "vite": "^3.1.8",
-    "sass": "^1.57.1"
+    "vite": "^3.1.8"
   },
   "dependencies": {
+    "@depict-ai/plp-styling": "^0.0.3",
+    "@depict-ai/ui": "^0.0.20",
     "@depict-ai/utilishared": "^0.0.7",
     "@solidjs/meta": "^0.28.0",
     "@solidjs/router": "^0.6.0",

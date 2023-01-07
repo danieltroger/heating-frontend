@@ -26,6 +26,7 @@ export default function Home() {
         value="50"
         step="0.25"
         ref={input_el!}
+        style={{ width: "100%" }}
         onInput={() => {
           socket?.ensure_sent({
             id: random_string(),

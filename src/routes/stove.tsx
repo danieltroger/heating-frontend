@@ -20,7 +20,7 @@ export default function Stove() {
             (see GPIO page to manually toggle)
           </div>
         </Show>
-        <div>Voltage: {get_voltage()}v</div>
+        <div>Current power: {get_voltage()! + 3}kw</div>
         <div>PID output: {get_pid_output()}</div>
       </div>
     </main>

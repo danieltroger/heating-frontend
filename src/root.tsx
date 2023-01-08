@@ -29,6 +29,7 @@ export default function Root() {
             <A href="/config-editor">Config editor</A>
             <A href="/temperatures">Temperatures</A>
             <A href="/gpio">GPIO</A>
+            <A href="/stove">Stove</A>
             <Routes>
               <FileRoutes />
             </Routes>

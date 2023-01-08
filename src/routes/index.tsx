@@ -15,6 +15,9 @@ export default function Home() {
         <li>
           <A href="/gpio">GPIO</A>
         </li>
+        <li>
+          <A href="/stove">Stove</A>
+        </li>
       </ol>
     </main>
   );

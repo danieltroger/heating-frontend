@@ -1,16 +1,19 @@
 import { Title } from "solid-start";
-import { createComputed, createMemo, createSignal, For } from "solid-js";
-import { socket } from "~/utilities/socket";
+import { createMemo, For } from "solid-js";
+import { get_backend_synced_signal } from "~/utilities/get_backend_synced_signal";
 
 export default function Temperatures() {
-  const [get_temperatures, set_temperatures] = createSignal<{
-    [key: string]: {
-      value: number;
-      time: number;
-      thermometer_device_id: string;
-      label: string;
-    };
-  }>({
+  const [get_temperatures] = get_backend_synced_signal<
+    {
+      [key: string]: {
+        value: number;
+        time: number;
+        thermometer_device_id: string;
+        label: string;
+      };
+    },
+    true
+  >("temperatures", {
     loading: {
       value: 0,
       time: 0,
@@ -31,13 +34,7 @@ export default function Temperatures() {
     },
   });
   const temperature_keys = createMemo(() => Object.keys(get_temperatures()));
-  const handler = (msg: Event) => {
-    const decoded = JSON.parse((msg as any).data);
-    if (decoded.type === "temperature-change") {
-      set_temperatures(decoded.value);
-    }
-  };
-  socket?.addEventListener("message", handler);
+
   return (
     <main>
       <Title>Temperatures</Title>

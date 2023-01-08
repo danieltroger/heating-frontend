@@ -1,25 +1,20 @@
 import { Title } from "solid-start";
-import {
-  createMemo,
-  createSignal,
-  For,
-  getOwner,
-  onCleanup,
-  runWithOwner,
-  Show,
-  untrack,
-} from "solid-js";
+import { createMemo, For, getOwner, Show, untrack } from "solid-js";
 import { socket } from "~/utilities/socket";
 import { random_string } from "@depict-ai/utilishared";
-import { is_client } from "~/utilities/is_client";
+import { show_toast_with_message } from "~/utilities/show_toast_with_message";
+import { get_backend_synced_signal } from "~/utilities/get_backend_synced_signal";
 
-type GPIOObj = {
+export type GPIOObj = {
   inputs: { [p: string]: 0 | 1 };
   outputs: { [p: string]: 0 | 1 };
 };
 
 export default function GPIO() {
-  const inputs = get_inputs();
+  const [inputs] = get_backend_synced_signal<GPIOObj, true>("gpio", {
+    inputs: {},
+    outputs: {},
+  });
   const keys_l1 = createMemo(() => Object.keys(inputs()));
 
   return (
@@ -68,35 +63,16 @@ export default function GPIO() {
                                   })) as any;
 
                                 console.log("set gpio result", result);
-
-                                const { show_toast } = await import(
-                                  "@depict-ai/ui"
-                                );
                                 const status = result?.status;
 
-                                runWithOwner(owner, () => {
-                                  const { close_toast_ } = show_toast({
-                                    children: [
-                                      <div class="statement">
-                                        {status === "ok"
-                                          ? "Successfully set " +
-                                            io_key +
-                                            " to " +
-                                            target_value
-                                          : result_json}
-                                      </div>,
-                                      <div class="buttons">
-                                        <button
-                                          onClick={() => close_toast_()}
-                                          class="ok major"
-                                        >
-                                          OK
-                                        </button>
-                                      </div>,
-                                    ],
-                                    close_after_: 5000,
-                                  });
-                                });
+                                await show_toast_with_message(owner, () =>
+                                  status === "ok"
+                                    ? "Successfully set " +
+                                      io_key +
+                                      " to " +
+                                      target_value
+                                    : result_json
+                                );
                               }}
                             >
                               {value()}
@@ -118,47 +94,4 @@ export default function GPIO() {
       </div>
     </main>
   );
-}
-
-function get_inputs() {
-  const [inputs, set_inputs] = createSignal<GPIOObj>({
-    inputs: {},
-    outputs: {},
-  });
-
-  if (!is_client) {
-    return inputs;
-  }
-
-  (async () => {
-    const message_handler = ({ data }: MessageEvent) => {
-      const decoded = JSON.parse(data);
-      if (decoded.type === "gpio-change") {
-        set_inputs(decoded.value);
-      }
-    };
-    socket?.addEventListener("message", message_handler as any);
-    onCleanup(() =>
-      socket?.removeEventListener("message", message_handler as any)
-    );
-    const [response, response_json] = (await socket?.ensure_sent({
-      id: random_string(),
-      command: "read-gpio",
-    })) as [
-      {
-        id: string;
-        status: "ok" | "not-ok";
-        value: any;
-      },
-      string
-    ];
-    if (response.status === "ok") {
-      set_inputs(response.value);
-    } else {
-      alert("Error getting gpio:" + response_json);
-      console.error(response);
-    }
-  })();
-
-  return inputs;
 }

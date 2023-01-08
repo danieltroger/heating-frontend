@@ -5,14 +5,23 @@ import { get_backend_synced_signal } from "~/utilities/get_backend_synced_signal
 export default function ConfigEditorComponent() {
   let textarea: HTMLTextAreaElement;
   let button: HTMLButtonElement;
-  const [get_config, set_config] = get_backend_synced_signal<string>("config");
+  const [get_config, set_config] = get_backend_synced_signal<{
+    [key: string]: any;
+  }>("config");
 
   return (
     <div class="config-editor">
       <textarea
         ref={(el) => {
           textarea = el;
-          createComputed(() => (el.value = get_config?.() || "Loading"));
+          createComputed(() => {
+            const config_value = get_config();
+            if (typeof config_value === "object") {
+              el.value = JSON.stringify(config_value, undefined, 2);
+            } else {
+              el.value = "Loading…";
+            }
+          });
         }}
       ></textarea>
       <br />

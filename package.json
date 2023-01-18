@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@depict-ai/plp-styling": "^0.0.3",
-    "@depict-ai/ui": "^0.0.20",
-    "@depict-ai/utilishared": "^0.0.7",
+    "@depict-ai/ui": "^0.0.33",
+    "@depict-ai/utilishared": "^0.0.31",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.6.0",
     "prettier": "^2.8.3",

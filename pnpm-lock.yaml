@@ -2,8 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@depict-ai/plp-styling': ^0.0.3
-  '@depict-ai/ui': ^0.0.20
-  '@depict-ai/utilishared': ^0.0.7
+  '@depict-ai/ui': ^0.0.33
+  '@depict-ai/utilishared': ^0.0.31
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.6.0
   prettier: ^2.8.3
@@ -17,8 +17,8 @@ specifiers:
 
 dependencies:
   '@depict-ai/plp-styling': 0.0.3
-  '@depict-ai/ui': 0.0.20
-  '@depict-ai/utilishared': 0.0.7
+  '@depict-ai/ui': 0.0.33
+  '@depict-ai/utilishared': 0.0.31
   '@solidjs/meta': 0.28.2_solid-js@1.6.9
   '@solidjs/router': 0.6.0_solid-js@1.6.9
   prettier: 2.8.3
@@ -1132,22 +1132,16 @@ packages:
     resolution: {integrity: sha512-+zlZ6czdxA90+ttScjs+7kRzLOrOHQPxuDIqJfrqriKMdBoKrqkyu2g6zjsPjIbZX1sVHEIDQVjVbtAY5ZdPfg==}
     dev: false
 
-  /@depict-ai/ui/0.0.20:
-    resolution: {integrity: sha512-yLnrMBQHibfBrbKA0POzQ0qaZhSIKfrm0zm9YOPC9QdRbqhSEweGLdMC5U6V1c7NoxXa/JxzQzSH/IJM/XRSuA==}
+  /@depict-ai/ui/0.0.33:
+    resolution: {integrity: sha512-3GXVfcHRizqqXtyAfiBHtq8mGwbwVwfZd5hffrcKvvws9alZ/igyFfzSDMe6NbNsM831zinTHQIfW3SispheRw==}
+    engines: {browsers: last 1 chrome version}
     dependencies:
-      '@depict-ai/utilishared': 0.0.18
+      '@depict-ai/utilishared': 0.0.31
       solid-js: 1.6.9
     dev: false
 
-  /@depict-ai/utilishared/0.0.18:
-    resolution: {integrity: sha512-fzhTeipEbGzYYMPl0Pl3UiV5FoUfL+acWS1WBlX45gEckLlrZNV0skPZ1FuVfprf+pL8nN4RGi4QQaKGjiTKRw==}
-    dependencies:
-      '@sentry/browser': 7.31.1
-      solid-js: 1.6.9
-    dev: false
-
-  /@depict-ai/utilishared/0.0.7:
-    resolution: {integrity: sha512-ERKuVRjxRUO0aH8uHeDW2yvo6CY8bIsJTPJOMp3nHzwBqRZ8r30XmkHp0EjgO2WTAEScfXWXWDjSkPukSidzQA==}
+  /@depict-ai/utilishared/0.0.31:
+    resolution: {integrity: sha512-8mo1mhOVQ+2hzOZVcnZNkU3KhJZtQWCNGBa0UqysOeZZpV8GTVYyyuwOxxezJ2fZG/0wvfHPca4gweW8ScGWYg==}
     dependencies:
       '@sentry/browser': 7.31.1
       solid-js: 1.6.9

@@ -25,5 +25,11 @@
   },
   "engines": {
     "node": ">=16.8"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@depict-ai/utilishared@0.0.31": "patches/@depict-ai__utilishared@0.0.31.patch",
+      "@depict-ai/ui@0.0.33": "patches/@depict-ai__ui@0.0.33.patch"
+    }
   }
 }

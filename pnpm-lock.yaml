@@ -1,5 +1,13 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  '@depict-ai/ui@0.0.33':
+    hash: 4mvvzm2ki4hgn6whugcjb7hepq
+    path: patches/@depict-ai__ui@0.0.33.patch
+  '@depict-ai/utilishared@0.0.31':
+    hash: ehmzxnntvlofvdd5jzkj7xtlyy
+    path: patches/@depict-ai__utilishared@0.0.31.patch
+
 specifiers:
   '@depict-ai/plp-styling': ^0.0.3
   '@depict-ai/ui': ^0.0.33
@@ -17,8 +25,8 @@ specifiers:
 
 dependencies:
   '@depict-ai/plp-styling': 0.0.3
-  '@depict-ai/ui': 0.0.33
-  '@depict-ai/utilishared': 0.0.31
+  '@depict-ai/ui': 0.0.33_4mvvzm2ki4hgn6whugcjb7hepq
+  '@depict-ai/utilishared': 0.0.31_ehmzxnntvlofvdd5jzkj7xtlyy
   '@solidjs/meta': 0.28.2_solid-js@1.6.9
   '@solidjs/router': 0.6.0_solid-js@1.6.9
   prettier: 2.8.3
@@ -1132,20 +1140,22 @@ packages:
     resolution: {integrity: sha512-+zlZ6czdxA90+ttScjs+7kRzLOrOHQPxuDIqJfrqriKMdBoKrqkyu2g6zjsPjIbZX1sVHEIDQVjVbtAY5ZdPfg==}
     dev: false
 
-  /@depict-ai/ui/0.0.33:
+  /@depict-ai/ui/0.0.33_4mvvzm2ki4hgn6whugcjb7hepq:
     resolution: {integrity: sha512-3GXVfcHRizqqXtyAfiBHtq8mGwbwVwfZd5hffrcKvvws9alZ/igyFfzSDMe6NbNsM831zinTHQIfW3SispheRw==}
     engines: {browsers: last 1 chrome version}
     dependencies:
-      '@depict-ai/utilishared': 0.0.31
+      '@depict-ai/utilishared': 0.0.31_ehmzxnntvlofvdd5jzkj7xtlyy
       solid-js: 1.6.9
     dev: false
+    patched: true
 
-  /@depict-ai/utilishared/0.0.31:
+  /@depict-ai/utilishared/0.0.31_ehmzxnntvlofvdd5jzkj7xtlyy:
     resolution: {integrity: sha512-8mo1mhOVQ+2hzOZVcnZNkU3KhJZtQWCNGBa0UqysOeZZpV8GTVYyyuwOxxezJ2fZG/0wvfHPca4gweW8ScGWYg==}
     dependencies:
       '@sentry/browser': 7.31.1
       solid-js: 1.6.9
     dev: false
+    patched: true
 
   /@esbuild/android-arm/0.15.18:
     resolution: {integrity: sha512-5GT+kcs2WVGjVs7+boataCkO5Fg0y4kCjzkB5bAip7H4jfnOS3dA6KPiww9W1OEKTKeAcUVhdZGvgI65OXmUnw==}

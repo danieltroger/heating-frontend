@@ -9,7 +9,7 @@ patchedDependencies:
     path: patches/@depict-ai__utilishared@0.0.31.patch
 
 specifiers:
-  '@depict-ai/plp-styling': ^0.0.3
+  '@depict-ai/plp-styling': ^0.0.32
   '@depict-ai/ui': ^0.0.33
   '@depict-ai/utilishared': ^0.0.31
   '@solidjs/meta': ^0.28.2
@@ -24,7 +24,7 @@ specifiers:
   vite: ^3.2.5
 
 dependencies:
-  '@depict-ai/plp-styling': 0.0.3
+  '@depict-ai/plp-styling': 0.0.32_sass@1.57.1
   '@depict-ai/ui': 0.0.33_4mvvzm2ki4hgn6whugcjb7hepq
   '@depict-ai/utilishared': 0.0.31_ehmzxnntvlofvdd5jzkj7xtlyy
   '@solidjs/meta': 0.28.2_solid-js@1.6.9
@@ -1136,8 +1136,12 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
 
-  /@depict-ai/plp-styling/0.0.3:
-    resolution: {integrity: sha512-+zlZ6czdxA90+ttScjs+7kRzLOrOHQPxuDIqJfrqriKMdBoKrqkyu2g6zjsPjIbZX1sVHEIDQVjVbtAY5ZdPfg==}
+  /@depict-ai/plp-styling/0.0.32_sass@1.57.1:
+    resolution: {integrity: sha512-1ZZuKTcXVP+JSOwHV6YoIoJtyu2848dfjzGZrXnBrlkIP5Pck8fPnO51IDu63omBbuL93gjNC3GKPUimUv3T6A==}
+    peerDependencies:
+      sass: '>= 1.54.6'
+    dependencies:
+      sass: 1.57.1
     dev: false
 
   /@depict-ai/ui/0.0.33_4mvvzm2ki4hgn6whugcjb7hepq:

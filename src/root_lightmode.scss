@@ -1,0 +1,8 @@
+@use "@depict-ai/plp-styling" with (
+  $border-radius: 0
+);
+@use "@depict-ai/plp-styling/components/PLP/Toast";
+@use "@depict-ai/plp-styling/components/PLP/Buttons";
+
+@include Toast.Toast();
+@include Buttons.PrimaryButton();

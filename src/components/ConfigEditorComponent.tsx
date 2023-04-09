@@ -1,5 +1,4 @@
 import { createComputed, getOwner } from "solid-js";
-import "./ConfigEditorComponent.css";
 import { get_backend_synced_signal } from "~/utilities/get_backend_synced_signal";
 import { show_toast_with_message } from "~/utilities/show_toast_with_message";
 
@@ -28,7 +27,7 @@ export default function ConfigEditorComponent() {
       ></textarea>
       <br />
       <button
-        class="save-button"
+        class="save-button major"
         ref={button!}
         onClick={async () => {
           if (!set_config) {

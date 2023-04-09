@@ -12,7 +12,7 @@ import {
   Scripts,
   Title,
 } from "solid-start";
-import "./root.scss";
+import "./non_depict_styling.scss";
 
 export default function Root() {
   return (

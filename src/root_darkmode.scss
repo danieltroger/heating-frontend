@@ -1,0 +1,23 @@
+@use "@depict-ai/plp-styling" with (
+  $border-radius: 0,
+  $background-colors: (
+    "base": (
+      "default": black,
+    ),
+  ),
+  $text-icon-colors: (
+    "base": (
+      "default": white,
+    ),
+  ),
+  $border-colors: (
+    "base": (
+      "default": #f6f6f6,
+    ),
+  )
+);
+@use "@depict-ai/plp-styling/components/PLP/Toast";
+@use "@depict-ai/plp-styling/components/PLP/Buttons";
+
+@include Toast.Toast();
+@include Buttons.PrimaryButton();

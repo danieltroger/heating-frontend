@@ -1,6 +1,15 @@
 import { Title } from "solid-start";
-import { createMemo, For } from "solid-js";
+import {
+  createMemo,
+  createSignal,
+  For,
+  JSX,
+  onCleanup,
+  untrack,
+} from "solid-js";
 import { get_backend_synced_signal } from "~/utilities/get_backend_synced_signal";
+import { catchify } from "@depict-ai/utilishared";
+import { isServer } from "solid-js/web";
 
 export default function Temperatures() {
   const [get_temperatures] = get_backend_synced_signal<
@@ -34,18 +43,56 @@ export default function Temperatures() {
     },
   });
   const temperature_keys = createMemo(() => Object.keys(get_temperatures()));
+  const [get_current_time, set_current_time] = createSignal<JSX.Element>();
+  const [get_show_current_time_fractional, set_show_current_time_fractional] =
+    createSignal(false);
+  let got_cleanuped = false;
+
+  const update_current_time = () => {
+    set_current_time(
+      new Date().toLocaleTimeString(undefined, {
+        fractionalSecondDigits: untrack(get_show_current_time_fractional)
+          ? 3
+          : undefined,
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      })
+    );
+    if (!got_cleanuped) {
+      requestAnimationFrame(update_current_time);
+    }
+  };
+
+  if (!isServer) {
+    update_current_time();
+  }
+
+  onCleanup(() => (got_cleanuped = true));
 
   return (
     <main>
       <Title>Temperatures</Title>
       <h1>Temperatures</h1>
+      <h4
+        onClick={catchify(() =>
+          set_show_current_time_fractional((old) => !old)
+        )}
+      >
+        Current time: {get_current_time()}
+      </h4>
       <div class="temperatures">
         <For each={temperature_keys()}>
           {(key) => {
             const obj = createMemo(() => get_temperatures()[key]);
             const value = createMemo(() => obj().value);
             const time = createMemo(() =>
-              new Date(obj().time).toLocaleTimeString()
+              new Date(obj().time).toLocaleTimeString(undefined, {
+                fractionalSecondDigits: 3,
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+              })
             );
             const label = createMemo(() => obj().label);
             const device_id = createMemo(

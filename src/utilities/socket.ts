@@ -9,6 +9,7 @@ if (!socket && is_client) {
     u_o.protocol = u_o.protocol === "https:" ? "wss:" : "ws:";
     u_o.port = "9321";
     socket = new DepictAPIWS(u_o.href);
+    console.log("Created new socket instance", socket);
   } catch (e) {
     console.log(e);
   }

@@ -29,11 +29,13 @@ export function get_backend_synced_signal<
   );
 
   (async () => {
-    const [response, response_json] = (await socket?.ensure_sent({
+    const message = {
       id: random_string(),
       command: "read",
       key,
-    })) as [
+    };
+    console.log("Sending read message", message);
+    const [response, response_json] = (await socket?.ensure_sent(message)) as [
       {
         id: string;
         status: "ok" | "not-ok";
@@ -41,6 +43,7 @@ export function get_backend_synced_signal<
       },
       string
     ];
+    console.log("Read response", response, response_json);
     if (response.status === "ok") {
       set_actual_signal(response.value);
     } else {

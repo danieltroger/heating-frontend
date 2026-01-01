@@ -10,6 +10,7 @@ if (!socket && is_client) {
     u_o.port = "9321";
     socket = new DepictAPIWS(u_o.href);
     console.log("Created new socket instance", socket);
+    // @ts-ignore
     window.socketDebug = socket;
   } catch (e) {
     console.log(e);
